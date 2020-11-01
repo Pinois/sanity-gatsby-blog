@@ -25,7 +25,6 @@
   grid-template-columns: auto auto;
   justify-content: left;
   align-items: center;
-  gap: 10px;
 
   @nest & a {
     display: inline-block;

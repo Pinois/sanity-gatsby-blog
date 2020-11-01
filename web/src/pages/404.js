@@ -1,13 +1,16 @@
 import React from "react";
+import Container from "../components/container";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>Il n'y a rien à voir par ici. </p>
+    <Container>
+      <SEO title="404: Not found" />
+      <h1>Erreur 404, page non trouvée.</h1>
+      <p>Il n'y a pas de page à cette adresse.</p>
+    </Container>
   </Layout>
 );
 
