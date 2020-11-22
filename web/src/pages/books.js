@@ -9,7 +9,7 @@ import Layout from "../containers/layout";
 
 import { responsiveTitle1 } from "../components/typography.module.css";
 
-const ArchivePage = (props) => {
+const BooksPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -24,20 +24,21 @@ const ArchivePage = (props) => {
 
   return (
     <Layout>
-      <SEO title="Archive" />
+      <SEO title="Livres" />
       <Container>
-        <h1 className={responsiveTitle1}>Archives</h1>
+        <h1 className={responsiveTitle1}>Livres</h1>
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
+        {postNodes.length === 0 && "Il n'y a pas encore de contenu dans la catégorie."}
       </Container>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query ArchivePageQuery {
+  query BooksPageQuery {
     posts: allSanityPost(
       sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      filter: { categories: { elemMatch: { id: { eq: "16c7e267-a060-55e0-af2c-1fdd2c316dab" } } } }
     ) {
       edges {
         node {
@@ -58,4 +59,4 @@ export const query = graphql`
   }
 `;
 
-export default ArchivePage;
+export default BooksPage;
