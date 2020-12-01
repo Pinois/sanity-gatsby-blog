@@ -9,7 +9,7 @@ import AuthorList from "./author-list";
 import styles from "./blog-post.module.css";
 
 function BlogPost(props) {
-  const { _rawBody, authors, categories, title, mainImage, publishedAt } = props;
+  const { _rawBody, authors, tags, title, mainImage, publishedAt } = props;
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
@@ -39,13 +39,13 @@ function BlogPost(props) {
                   : format(new Date(publishedAt), "DD/MM/YYYY")}
               </div>
             )}
-            {authors && <AuthorList items={authors} title="Auteur" />}
-            {categories && (
+            {/* {authors && <AuthorList items={authors} title="Auteur" />} */}
+            {tags && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
-                  {categories.map((category) => (
-                    <li key={category._id}>{category.title}</li>
+                  {tags.map((tag) => (
+                    <li key={tag.id}>{tag.name}</li>
                   ))}
                 </ul>
               </div>

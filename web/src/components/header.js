@@ -44,6 +44,9 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
 
         <nav className={cn(styles.nav, showNav && styles.showNav)}>
           <ul>
+            <li>
+              <Link to="/about">À propos</Link>
+            </li>
             {categories.nodes
               .filter((cat) => cat.showInMenu)
               .map((cat) => (
@@ -54,9 +57,6 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
             {/* <li>
             <Link to="/archive/">Archives</Link>
           </li> */}
-            <li>
-              <Link to="/about">À propos</Link>
-            </li>
           </ul>
         </nav>
       </div>
