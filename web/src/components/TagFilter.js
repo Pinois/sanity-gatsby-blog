@@ -10,7 +10,7 @@ const TagsStyles = styled.div`
   a {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-gap: 0 5px;
+    gap: 5px;
     align-items: center;
     justify-items: center;
     padding: 5px 20px;
@@ -20,6 +20,9 @@ const TagsStyles = styled.div`
     color: #202123;
     .count {
       padding: 2px 5px;
+    }
+    &:hover {
+      background: #f5cc3280;
     }
     &[aria-current="page"] {
       background: #f5cc32;

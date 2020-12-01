@@ -82,6 +82,16 @@
   @nest & ul li {
     padding: 0.25rem 0;
   }
+
+  @nest & a {
+    color: var(--color-black);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  @nest & a:hover {
+    color: var(--color-accent);
+  }
 }
 
 .categoriesHeadline {

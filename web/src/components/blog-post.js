@@ -1,4 +1,5 @@
 import { format, distanceInWords, differenceInDays } from "date-fns";
+import { Link } from "gatsby";
 import React from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
@@ -9,7 +10,8 @@ import AuthorList from "./author-list";
 import styles from "./blog-post.module.css";
 
 function BlogPost(props) {
-  const { _rawBody, authors, tags, title, mainImage, publishedAt } = props;
+  const { _rawBody, authors, tags, categories, title, mainImage, publishedAt } = props;
+  console.log(categories);
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
@@ -45,7 +47,9 @@ function BlogPost(props) {
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
                   {tags.map((tag) => (
-                    <li key={tag.id}>{tag.name}</li>
+                    <Link to={`/${categories[0].slug.current}/${tag.name}`}>
+                      <li key={tag.id}>{tag.name}</li>
+                    </Link>
                   ))}
                 </ul>
               </div>
